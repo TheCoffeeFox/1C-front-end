@@ -20,7 +20,6 @@ for(d=0; d<60; ++d){
 
 function drawWatch(){
     context.clearRect(0,0,300,300);
-    context.stroke(square);
     
 var date = new Date(), hours, minutes, seconds;
 
@@ -45,7 +44,7 @@ sX +=R; sY +=R;
 square.moveTo(sX,sY);
 square.lineTo(R,R);
     
-mx= Math.cos(minutesAngle)*R;
+mX= Math.cos(minutesAngle)*R;
 mY= -Math.sin(minutesAngle)*R;
 mX +=R; mY +=R;
 square.moveTo(mX,mY);
@@ -57,6 +56,8 @@ hX +=R; hY +=R;
 square.moveTo(hX,hY);
 square.lineTo(R,R);
 
-setTimeout(drawWatch,1000);
+context.stroke(square);
+
+setTimeout(drawWatch, 1000);
 }
 drawWatch();

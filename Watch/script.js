@@ -2,7 +2,9 @@ var canvas = document.getElementById("sandbox"),
     context = canvas.getContext("2d"),
     square, circle;
 
-square = new Path2D();
+function drawWatch(){
+
+square = new Path2D();    
 
 var R=300/2,d,angle,pX,pY,qX,qY;
 
@@ -18,9 +20,6 @@ for(d=0; d<60; ++d){
     square.lineTo(qX,qY);
 }
 
-function drawWatch(){
-    context.clearRect(0,0,300,300);
-    
 var date = new Date(), hours, minutes, seconds;
 
 hours = date.getHours();
@@ -36,7 +35,7 @@ hoursAngle = ((hours % 12)/12)*(2*Math.PI);
 
 secondsAngle = Math.PI/2 - secondsAngle;
 minutesAngle = Math.PI/2 - minutesAngle;
-hoursAngle = Math.Pi/2 - hoursAngle;
+hoursAngle = Math.PI/2 - hoursAngle;
 
 sX= Math.cos(secondsAngle)*R;
 sY= -Math.sin(secondsAngle)*R;
@@ -44,18 +43,19 @@ sX +=R; sY +=R;
 square.moveTo(sX,sY);
 square.lineTo(R,R);
     
-mX= Math.cos(minutesAngle)*R;
-mY= -Math.sin(minutesAngle)*R;
+mX= Math.cos(minutesAngle)*0.75*R;
+mY= -Math.sin(minutesAngle)*0.75*R;
 mX +=R; mY +=R;
 square.moveTo(mX,mY);
 square.lineTo(R,R);
     
-hX= Math.cos(hoursAngle)*R;
-hY= -Math.sin(hoursAngle)*R;
+hX= Math.cos(hoursAngle)*0.25*R;
+hY= -Math.sin(hoursAngle)*0.25*R;
 hX +=R; hY +=R;
 square.moveTo(hX,hY);
 square.lineTo(R,R);
 
+context.clearRect(0, 0, 300, 300);
 context.stroke(square);
 
 setTimeout(drawWatch, 1000);

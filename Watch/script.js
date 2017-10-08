@@ -4,7 +4,8 @@ var canvas = document.getElementById("sandbox"),
 
 function drawWatch(){
 context.clearRect(0, 0, 300, 300);
-
+    context.lineCap = "round";
+    context.lineWidth = 1;
 
 square = new Path2D();
 l1= new Path2D(); 
@@ -62,8 +63,6 @@ hX +=R; hY +=R;
 l3.moveTo(hX,hY);
 l3.lineTo(R,R);
     
-    context.lineCap = "round";
-    context.lineWidth = 1;
 context.stroke(square); 
     context.strokeStyle= "red";
 context.stroke(l1);
